@@ -18,7 +18,6 @@ public class ShipController : MonoBehaviour
     
     void FixedUpdate()
     {
-        // Move the ship forward/backward
         Vector2 moveDirection = transform.up * moveInput * moveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + moveDirection);
 
