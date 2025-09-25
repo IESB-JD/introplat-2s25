@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class ShipController : MonoBehaviour
@@ -10,14 +9,23 @@ public class ShipController : MonoBehaviour
     private float moveInput = 0;
     private float rotationInput = 0;
     
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+    
     void Update()
     {
         moveInput = Input.GetAxis("Vertical");
         rotationInput = Input.GetAxis("Horizontal");
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(bulletPrefab, bulletSpawn.position, transform.rotation);
+        }
     }
     
     void FixedUpdate()
     {
+        // Move the ship forward/backward
         Vector2 moveDirection = transform.up * moveInput * moveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + moveDirection);
 
@@ -28,11 +36,11 @@ public class ShipController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Asteroid"))
-        {
-            Debug.Log("Collided with an asteroid!");
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
+        // if (other.CompareTag("Asteroid"))
+        // {
+        //     Debug.Log("Collided with an asteroid!");
+        //     Destroy(other.gameObject);
+        //     Destroy(gameObject);
+        // }
     }
 }

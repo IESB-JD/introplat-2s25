@@ -12,13 +12,6 @@ public class AsteroidSpawner : MonoBehaviour
     
     private void Start()
     {
-        // while (count < initialCount)
-        // {
-        //     Instantiate(asteroidPrefab, GetRandomPosition(), Quaternion.identity);
-        //     count++;
-        // }
-        
-        //Laço de Repetição
         for (int i = 0; i < initialCount; i++)
         {
             SpawnAsteroid();
@@ -40,16 +33,4 @@ public class AsteroidSpawner : MonoBehaviour
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
         return worldPosition;
     }
-    
-    
-    // private void Update()
-    // {
-    //     spawnTimer -= Time.deltaTime;
-    //     
-    //     if(spawnTimer <= 0f)
-    //     {
-    //         Instantiate(asteroidPrefab, GetRandomPosition(), Quaternion.identity);
-    //         spawnTimer = spawnInterval;
-    //     }
-    // }
 }

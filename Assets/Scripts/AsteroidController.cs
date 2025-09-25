@@ -23,7 +23,7 @@ public class AsteroidController : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmos()
