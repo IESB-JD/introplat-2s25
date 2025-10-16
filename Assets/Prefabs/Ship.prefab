@@ -65,7 +65,7 @@ Transform:
   m_Children:
   - {fileID: 2777419834004808025}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7506232287645387294
 SpriteRenderer:
@@ -207,13 +207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580c2a063b1f24b7cb4e07ed4c7757b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rotationSpeed: 200
   rb: {fileID: 7506232287645387295}
-  singleShotBulletPrefab: {fileID: 7844772155310418951, guid: d888e1c8d16834c5c8071d955336b1ed,
-    type: 3}
-  doubleShotBulletPrefab: {fileID: 7844772155310418951, guid: 99c9f32ea1e4048a68ed36042ba5c405,
+  bulletPrefab: {fileID: 7844772155310418951, guid: d888e1c8d16834c5c8071d955336b1ed,
     type: 3}
   bulletSpawn: {fileID: 2777419834004808025}
-  shotOffSet: 0.5
+  moveSpeed: 5
+  rotationSpeed: 200
   fireCooldown: 0.3

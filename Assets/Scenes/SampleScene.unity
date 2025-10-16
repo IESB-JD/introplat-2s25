@@ -279,11 +279,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship
       objectReference: {fileID: 0}
-    - target: {fileID: 7506232287645387292, guid: f4882fa22a65c44178a53a2aab317450,
-        type: 3}
-      propertyPath: playerLevel
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7506232287645387297, guid: f4882fa22a65c44178a53a2aab317450,
         type: 3}
       propertyPath: m_RootOrder
@@ -339,8 +334,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 897112112198481093, guid: f4882fa22a65c44178a53a2aab317450, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
