@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -24,11 +23,5 @@ public class AsteroidController : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + (Vector3)moveDirection);
     }
 }
