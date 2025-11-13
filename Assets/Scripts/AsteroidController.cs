@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,6 +12,10 @@ public class AsteroidController : MonoBehaviour
     private float _rotationSpeed;
     
     [SerializeField] private bool isSmall = false;
+
+    [SerializeField] private int points;
+    
+    private ShipController _shipController;
     
     void Start()
     {
@@ -18,7 +23,8 @@ public class AsteroidController : MonoBehaviour
         {
             moveDirection = (Random.insideUnitCircle * 5f).normalized;
         }
-        //_rotationSpeed = Random.Range(-100f, 100f);
+
+        _shipController = FindAnyObjectByType<ShipController>();
     }
     
     public void Initialize(Vector2 direction)
@@ -53,6 +59,7 @@ public class AsteroidController : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            _shipController.AddScore(points);
             if(smallAsteroidPrefab != null)
             {
                 SpawnSmallerAsteroids();

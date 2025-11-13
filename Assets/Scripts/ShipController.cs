@@ -1,13 +1,16 @@
+using TMPro;
 using UnityEngine;
 
 public class ShipController : MonoBehaviour
 {
     Animator animator;
+ 
     //References
     public Rigidbody2D rb;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public Animator anim;
+    public TextMeshProUGUI scoreText;
     
     //Movement
     public float moveSpeed = 5;
@@ -25,6 +28,8 @@ public class ShipController : MonoBehaviour
     public float invincibilityDuration = 5f;
     private float _invincibilityTimer;
     
+    private static int _score;
+
     void Update()
     {
         _moveInput = Input.GetAxis("Vertical");
@@ -79,16 +84,16 @@ public class ShipController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // if (other.CompareTag("Asteroid"))
-        // {
-        //     Debug.Log("Collided with Asteroid!");
-        //     Destroy(other.gameObject); //Destroy the player ship
-        //     
-        //     if(!isInvincible)
-        //     {
-        //         Destroy(gameObject); //Destroy the asteroid
-        //     }
-        // }
+        if (other.CompareTag("Asteroid"))
+        {
+            Debug.Log("Collided with Asteroid!");
+            Destroy(other.gameObject); //Destroy the player ship
+            
+            if(!isInvincible)
+            {
+                Destroy(gameObject); //Destroy the asteroid
+            }
+        }
         
         if (other.CompareTag("PowerUp"))
         {
@@ -99,5 +104,12 @@ public class ShipController : MonoBehaviour
             
             GetComponent<SpriteRenderer>().color = Color.yellow;
         }
+    }
+    
+    public void AddScore(int points)
+    {
+        _score += points;
+        Debug.Log("Score: " + _score);
+        scoreText.text = "Score: " + _score;
     }
 }
