@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour
 {
+    Animator animator;
     //References
     public Rigidbody2D rb;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
+    public Animator anim;
     
     //Movement
     public float moveSpeed = 5;
@@ -57,6 +59,11 @@ public class ShipController : MonoBehaviour
         {
             _currentSpeed = moveSpeed * 2;
         }
+        
+        // bool isReallyMovingThisShit = _moveInput > 0.2f || _moveInput < -0.2f || _rotationInput > 0.2f || _rotationInput < -0.2f;
+        // anim.SetBool("IsMoving", isReallyMovingThisShit);
+        anim.SetFloat("Move", Mathf.Abs(_moveInput + _rotationInput));
+
     }
     
     void FixedUpdate()

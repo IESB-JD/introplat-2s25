@@ -29,7 +29,7 @@ public class AsteroidController : MonoBehaviour
     void FixedUpdate()
     {
         rb.angularVelocity = _rotationSpeed;
-        rb.velocity = moveDirection * moveSpeed;
+        rb.linearVelocity = moveDirection * moveSpeed;
     }
 
     private void OnBecameInvisible()
@@ -62,7 +62,7 @@ public class AsteroidController : MonoBehaviour
 
     private void SpawnSmallerAsteroids()
     {
-        Vector2 currentVelocity = rb.velocity;
+        Vector2 currentVelocity = rb.linearVelocity;
         
         //Vector2 perpendicularDirection = new Vector2(-currentVelocity.y, currentVelocity.x).normalized;
         Vector2 perpendicularDirection = Vector2.Perpendicular(currentVelocity).normalized;
